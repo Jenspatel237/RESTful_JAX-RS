@@ -2,6 +2,7 @@ package com.jenish.Restful_java.messenger.resources;
 
 import java.util.List;
 
+import javax.annotation.security.PermitAll;
 import javax.ws.rs.BeanParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -67,6 +68,12 @@ public class MessageResource
 	public Message test(@PathParam("messageId") Long messageId)
 	{
 		return messageService.getMessage(messageId);
+	}
+	
+	@Path("/{messageId}/comments")
+	public CommentResource getCommentResourse()
+	{
+		return new CommentResource();
 	}
 	
 	
